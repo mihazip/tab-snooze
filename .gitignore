@@ -1,0 +1,14 @@
+# Build outputs
+dist/
+web-ext-artifacts/
+*.xpi
+*.zip
+
+# AMO upload state
+.amo-upload-uuid
+
+# OS and editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

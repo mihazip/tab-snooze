@@ -1,0 +1,432 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #1a1a2e;
+  color: #eee;
+  width: 320px;
+}
+
+.snooze-container {
+  padding: 16px;
+}
+
+h2 {
+  margin: 0 0 16px 0;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  color: #fff;
+}
+
+.snooze-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.snooze-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 8px;
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 70px;
+  color: #eee;
+}
+
+.snooze-btn:hover {
+  background: #0f3460;
+  border-color: #53a8b6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.snooze-btn:active {
+  transform: translateY(0);
+}
+
+.snooze-btn .icon {
+  font-size: 24px;
+  margin-bottom: 4px;
+}
+
+.snooze-btn .label {
+  font-size: 11px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.snooze-btn .timing {
+  font-size: 9px;
+  text-align: center;
+  color: #888;
+  margin-top: 2px;
+  line-height: 1.2;
+}
+
+.settings-btn {
+  background: #2a2a3e;
+}
+
+.settings-btn:hover {
+  background: #3a3a4e;
+  border-color: #888;
+}
+
+.view-snoozed-btn {
+  background: #2a2a3e;
+}
+
+.view-snoozed-btn:hover {
+  background: #3a3a4e;
+  border-color: #888;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #16213e;
+  border: 2px solid #0f3460;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+}
+
+.modal-content h3 {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  color: #fff;
+}
+
+.date-time-inputs {
+  margin-bottom: 16px;
+}
+
+.input-group {
+  margin-bottom: 12px;
+}
+
+.input-group:last-child {
+  margin-bottom: 0;
+}
+
+.input-group label {
+  display: block;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #0f3460;
+  border-radius: 6px;
+  background: #1a1a2e;
+  color: #eee;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #53a8b6;
+}
+
+.input-group input::placeholder {
+  color: #666;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-buttons button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+#confirm-date-btn {
+  background: #53a8b6;
+  color: #fff;
+}
+
+#confirm-date-btn:hover {
+  background: #4a96a3;
+}
+
+#cancel-date-btn {
+  background: #666;
+  color: #fff;
+}
+
+#cancel-date-btn:hover {
+  background: #777;
+}
+
+/* Calendar styles */
+.calendar-container {
+  margin-bottom: 16px;
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.calendar-nav {
+  background: #0f3460;
+  border: 2px solid #53a8b6;
+  color: #fff;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.calendar-nav:hover {
+  background: #53a8b6;
+}
+
+.calendar-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+  font-weight: 600;
+  padding: 4px 0;
+}
+
+.calendar-days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.calendar-day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #1a1a2e;
+  border: 2px solid #0f3460;
+  color: #eee;
+  height: 32px;
+  min-width: 32px;
+}
+
+.calendar-day:hover:not(.disabled):not(.other-month) {
+  background: #0f3460;
+  border-color: #53a8b6;
+  transform: scale(1.05);
+}
+
+.calendar-day.selected {
+  background: #53a8b6;
+  border-color: #53a8b6;
+  color: #fff;
+  font-weight: bold;
+}
+
+.calendar-day.today {
+  border-color: #4a96a3;
+  font-weight: bold;
+}
+
+.calendar-day.disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.calendar-day.other-month {
+  opacity: 0.3;
+  color: #666;
+}
+
+.calendar-day.empty {
+  background: transparent;
+  border: none;
+  cursor: default;
+}
+
+/* Recurring modal styles */
+.recurring-modal-content {
+  width: 340px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.recurring-inputs {
+  margin-bottom: 16px;
+}
+
+.frequency-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.frequency-btn {
+  padding: 10px;
+  background: #1a1a2e;
+  border: 2px solid #0f3460;
+  border-radius: 6px;
+  color: #eee;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.frequency-btn:hover {
+  background: #0f3460;
+  border-color: #53a8b6;
+}
+
+.frequency-btn.active {
+  background: #53a8b6;
+  border-color: #53a8b6;
+  color: #fff;
+}
+
+.day-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 6px;
+  background: #1a1a2e;
+  border: 2px solid #0f3460;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.checkbox-label:hover {
+  background: #0f3460;
+  border-color: #53a8b6;
+}
+
+.checkbox-label input[type="checkbox"] {
+  cursor: pointer;
+  width: 14px;
+  height: 14px;
+  margin: 0;
+}
+
+.checkbox-label input[type="checkbox"]:checked {
+  accent-color: #53a8b6;
+}
+
+.recurring-inputs select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #0f3460;
+  border-radius: 6px;
+  background: #1a1a2e;
+  color: #eee;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.recurring-inputs select:focus {
+  outline: none;
+  border-color: #53a8b6;
+}
+
+.recurring-inputs input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #0f3460;
+  border-radius: 6px;
+  background: #1a1a2e;
+  color: #eee;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.recurring-inputs input[type="date"]:focus {
+  outline: none;
+  border-color: #53a8b6;
+}
+
+.recurring-inputs input[type="checkbox"] {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.recurring-inputs input[type="checkbox"]:checked {
+  accent-color: #53a8b6;
+}
+
+.recurring-option {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
